@@ -17,17 +17,24 @@ class StartScreen extends StatelessWidget {
             'assets/images/quiz-logo.png',
             width: 300,
             height: 300,
+            color: const Color.fromARGB(150, 255, 255, 255),
           ),
           const SizedBox(height: 40),
           const Text(
             'Learn Flutter the fun way!',
             style: TextStyle(
-                color: Color.fromARGB(255, 176, 202, 236), fontSize: 20),
+              color: Color.fromARGB(255, 176, 202, 236),
+              fontSize: 20,
+            ),
           ),
           const SizedBox(height: 20),
-          ElevatedButton(
+          OutlinedButton.icon(
             onPressed: onPressed,
-            child: const Text('Start Quiz'),
+            icon: const Icon(Icons.arrow_right_alt),
+            label: const Text('Start Quiz'),
+            style: OutlinedButton.styleFrom(
+              foregroundColor: Colors.white,
+            ),
           )
         ],
       ),

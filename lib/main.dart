@@ -9,8 +9,8 @@ void main() {
           decoration: const BoxDecoration(
             gradient: LinearGradient(
               colors: [
-                Color.fromARGB(255, 13, 6, 113),
-                Color.fromARGB(255, 30, 27, 74),
+                Color.fromARGB(255, 55, 17, 107),
+                Color.fromARGB(255, 41, 11, 74),
               ],
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
