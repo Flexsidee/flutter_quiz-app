@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 
 import 'package:quiz_app/data/questions.dart';
-import 'package:quiz_app/question_summary.dart';
+import 'package:quiz_app/questions_summary/question_summary.dart';
 
 class ResultScreen extends StatelessWidget {
-  const ResultScreen({super.key, required this.chosenAnswers});
+  const ResultScreen(
+      {super.key, required this.chosenAnswers, required this.restartQuiz});
 
   final List<String> chosenAnswers;
+  final void Function() restartQuiz;
 
   List<Map<String, Object>> getSummaryData() {
     final List<Map<String, Object>> summary = [];
@@ -37,21 +39,22 @@ class ResultScreen extends StatelessWidget {
         margin: const EdgeInsets.all(20),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Text(
               'You answered $totalCorretAnswers out of $totalQuestionsAsked questions corretly!',
               style: const TextStyle(
                 color: Colors.white,
                 fontSize: 20,
+                fontWeight: FontWeight.bold,
               ),
+              textAlign: TextAlign.center,
             ),
             const SizedBox(height: 30),
             QuestionsSummary(summaryData),
             const SizedBox(height: 30),
             OutlinedButton.icon(
                 icon: const Icon(Icons.refresh, color: Colors.white),
-                onPressed: () {},
+                onPressed: restartQuiz,
                 label: const Text(
                   'Restart Quiz!',
                   style: TextStyle(color: Colors.white),

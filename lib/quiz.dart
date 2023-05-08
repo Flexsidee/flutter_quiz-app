@@ -28,10 +28,16 @@ class _QuizState extends State<Quiz> {
     selectedAnswers.add(answer);
     if (selectedAnswers.length == questions.length) {
       setState(() {
-        // selectedAnswers = [];
         activeScreen = 'result-screen';
       });
     }
+  }
+
+  void restartQuiz() {
+    setState(() {
+      selectedAnswers = [];
+      activeScreen = 'question-screen';
+    });
   }
 
   @override
@@ -45,6 +51,9 @@ class _QuizState extends State<Quiz> {
     } else if (activeScreen == 'result-screen') {
       screenWidget = ResultScreen(
         chosenAnswers: selectedAnswers,
+        restartQuiz: () {
+          restartQuiz();
+        },
       );
       // screenWidget = StartScreen(changeScreen);
     }
